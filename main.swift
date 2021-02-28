@@ -1,11 +1,13 @@
 import Foundation
 
+// Here we are creating model class for registering the customer
 class Customer{
     var Cust_Id:Int
     var Cust_Name:String
     var Account_Type: String
     var Cust_Deposit:Double
     
+    // creating constructor for above attributes
     init(Cust_Id:Int, Cust_Name:String, Account_Type:String, Cust_Deposit:Double) {
         self.Cust_Id = Cust_Id
         self.Cust_Name = Cust_Name
@@ -21,16 +23,13 @@ class Customer{
     let line = String(self.Cust_Id)+","+self.Cust_Name+","+String(self.Account_Type)+","+String(self.Cust_Deposit)+"\n"
     return line
   }
+    // printing the full details for account
     func printDetails()
     {
         print("Customer Id:\(self.Cust_Id)\tCustomer Name:\(self.Cust_Name)\tAccount Type:\(self.Account_Type)\tDeposit Amount:\(self.Cust_Deposit)")
     }
     
-    func returnamount() -> Double
-    {
-        
-        return self.Cust_Deposit
-    }
+
 }
 
 //create an empty array of Customersj
@@ -101,6 +100,8 @@ func savingData(){
         }
 }
 
+
+// function to read the data from LocalFile
 func readingFromLocalFile(){
 do {
  // Get the saved data all the contnt of the text file as data
@@ -148,15 +149,6 @@ func updateData(){
         }
 }
 
-
-//func paybill(bill_cust_id: Int)
-//{
-//    print("Enter the amount how much bill you wannt to pay")
-//
-//    print(customers[0].Cust_Id)
-//
-//
-//}
 
 //function to search for a product by number and return it
 func searchByNo(no:Int) ->Customer?{
@@ -256,7 +248,6 @@ repeat{
           
     case 2: print("Enter your customer id:")
             
-           // appendData()
     
                 let no = Int(readLine()!)!
              print(searchByNo(no: no)?.printDetails())
@@ -279,7 +270,6 @@ repeat{
             
         }
 
-          
           
           while amount<withdrawl
         
@@ -381,6 +371,8 @@ repeat{
             
                  var billtopay = 0.0
                  var amount = 0.0
+            
+            // paying the bill and comparing bill ampunt with total account balance
             
               repeat{
                 if(billtopay>amount)
